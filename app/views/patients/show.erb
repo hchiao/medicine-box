@@ -13,12 +13,25 @@
 </ul>
 <%end%>
 
-<h3>Doctor - Patient</h3>
-<% @my_doctor_patient_joins.each do |pair|
-     doctor  = Doctor.find(pair.doctor_id)
-     patient = Patient.find(pair.patient_id)
- %>
+<h3>Disease</h3>
+<% @my_diseases.each do |disease| %>
 <ul>
-    <li>Doctor: <%= doctor.id %> <%= doctor.name %> --- Patient: <%= patient.id %> <%= patient.name %></li>
+    <li><%= disease.id %> - <%= disease.name %></li>
 </ul>
+<%end%>
+
+<h3>Patient - Doctor - Disease</h3>
+<% @my_patients.each do |patient| %>
+    <h4>Patient: <%=patient.name%> </h4>
+    <% patient.doctors.each do |doc| %>
+    <ul>
+        <li>doctor: <%= doc.name %></li>
+    </ul>
+    <%end%>
+
+    <% patient.disease.each do |dis| %>
+    <ul>
+        <li>disease: <%= dis.name %></li>
+    </ul>
+    <%end%>
 <%end%>

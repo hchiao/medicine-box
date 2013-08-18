@@ -20,3 +20,14 @@ DoctorPatientJoin.delete_all
 DoctorPatientJoin.create([{doctor_id: john.first.id, patient_id: george.first.id}])
 DoctorPatientJoin.create([{doctor_id: john.first.id, patient_id: kate.first.id}])
 DoctorPatientJoin.create([{doctor_id: steven.first.id, patient_id: jenny.first.id}])
+
+Disease.delete_all
+ckd        = Disease.create([{name: "Chromic Kidney Disease"}])
+diabetes   = Disease.create([{name: "Diabetes"}])
+
+DiseasePatientJoin.delete_all
+# Very dodgy as it's using first, what happens if it's empty or has more than one?
+DiseasePatientJoin.create([{disease_id: ckd.first.id, patient_id: george.first.id}])
+DiseasePatientJoin.create([{disease_id: diabetes.first.id, patient_id: kate.first.id}])
+DiseasePatientJoin.create([{disease_id: ckd.first.id, patient_id: jenny.first.id}])
+DiseasePatientJoin.create([{disease_id: diabetes.first.id, patient_id: jenny.first.id}])
