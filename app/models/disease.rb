@@ -1,6 +1,8 @@
 class Disease < ActiveRecord::Base
-    has_one :treatment
+    belongs_to(:chart)
 
-    has_many(:disease_patient_joins)
-    has_many(:patients, :through => :disease_patient_joins)
+    has_many(:contracted_diseases)
+    has_many(:charts, :through => :contracted_diseases)
+
+    has_one(:treatment)
 end

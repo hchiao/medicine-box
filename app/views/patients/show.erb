@@ -1,5 +1,7 @@
 <h1>Medicine-Box</h1>
 
+<p>Create new <%= link_to "patient", new_patient_path %></p>
+
 <% @my_patients.each do |patient| %>
     <h4>Patient No.: <%= patient.id %></h2>
     <p>Name: <%= patient.name %></p>
@@ -16,6 +18,9 @@
         </ul>
         </p>
     <% @dis = Array.new %>
-    <% patient.disease.each { |d| @dis << d.name} %>
+    <% patient.chart.diseases.each { |d| @dis << d.name} %>
     <p>Disease: <%= @dis.to_sentence %></p>
+    <% patient.schedules.each do |s| %>
+        <p>Schedule: <%= s.description %>, <%= s.time %></p>
+    <%end%>
 <%end%>

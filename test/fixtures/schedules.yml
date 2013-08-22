@@ -2,8 +2,10 @@
 
 one:
   patient_id: 1
-  disease_id: 1
+  description: MyText
+  time: 2013-08-23 01:11:23
 
 two:
   patient_id: 1
-  disease_id: 1
+  description: MyText
+  time: 2013-08-23 01:11:23

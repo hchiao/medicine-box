@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130822025738) do
+ActiveRecord::Schema.define(version: 20130822151123) do
 
   create_table "charts", force: true do |t|
     t.integer  "patient_id"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20130822025738) do
     t.integer  "blood_pressure_diastolic"
   end
 
-  create_table "disease_patient_joins", force: true do |t|
-    t.integer  "patient_id"
+  create_table "contracted_diseases", force: true do |t|
+    t.integer  "chart_id"
     t.integer  "disease_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 20130822025738) do
 
   create_table "patients", force: true do |t|
     t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schedules", force: true do |t|
+    t.integer  "patient_id"
+    t.text     "description"
+    t.datetime "time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
