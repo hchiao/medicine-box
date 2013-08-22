@@ -4,4 +4,7 @@ class Patient < ActiveRecord::Base
 
     has_many(:disease_patient_joins)
     has_many(:disease, :through => :disease_patient_joins)
+
+    has_many(:treatments)
+    has_one(:chart)
 end

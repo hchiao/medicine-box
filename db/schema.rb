@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130818034745) do
+ActiveRecord::Schema.define(version: 20130822025738) do
+
+  create_table "charts", force: true do |t|
+    t.integer  "patient_id"
+    t.integer  "age"
+    t.float    "height"
+    t.boolean  "diabetic"
+    t.integer  "blood_pressure_systolic"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "blood_pressure_diastolic"
+  end
 
   create_table "disease_patient_joins", force: true do |t|
     t.integer  "patient_id"
@@ -43,6 +54,14 @@ ActiveRecord::Schema.define(version: 20130818034745) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "treatments", force: true do |t|
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "disease_id"
   end
 
 end

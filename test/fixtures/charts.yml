@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  patient_id: 1
+  age: 1
+  height: 1.5
+  diabetic: false
+  blood_pressure: 1
+
+two:
+  patient_id: 1
+  age: 1
+  height: 1.5
+  diabetic: false
+  blood_pressure: 1

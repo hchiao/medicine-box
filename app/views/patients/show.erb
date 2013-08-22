@@ -1,37 +1,21 @@
-<h1>Showing all model data</h1>
-<h3>Doctor</h3>
-<% @my_doctors.each do |doctor| %>
-<ul>
-    <li><%= doctor.id %> - <%= doctor.name %></li>
-</ul>
-<%end%>
+<h1>Medicine-Box</h1>
 
-<h3>Patient</h3>
 <% @my_patients.each do |patient| %>
-<ul>
-    <li><%= patient.id %> - <%= patient.name %></li>
-</ul>
-<%end%>
+    <h4>Patient No.: <%= patient.id %></h2>
+    <p>Name: <%= patient.name %></p>
 
-<h3>Disease</h3>
-<% @my_diseases.each do |disease| %>
-<ul>
-    <li><%= disease.id %> - <%= disease.name %></li>
-</ul>
-<%end%>
+    <% @doc = Array.new %>
+    <% patient.doctors.each { |d| @doc << d.name} %>
+    <p>Doctors: <%= @doc.to_sentence %></p>
 
-<h3>Patient - Doctor - Disease</h3>
-<% @my_patients.each do |patient| %>
-    <h4>Patient: <%=patient.name%> </h4>
-    <% patient.doctors.each do |doc| %>
-    <ul>
-        <li>doctor: <%= doc.name %></li>
-    </ul>
-    <%end%>
-
-    <% patient.disease.each do |dis| %>
-    <ul>
-        <li>disease: <%= dis.name %></li>
-    </ul>
-    <%end%>
+    <p>Chart:
+        <ul><li>Age: <%= patient.chart.age %></li>
+            <li>Height: <%= patient.chart.height %></li>
+            <li>Diabetic: <%= patient.chart.diabetic %></li>
+            <li>BP: <%= patient.chart.blood_pressure_systolic %>/<%= patient.chart.blood_pressure_diastolic %></li>
+        </ul>
+        </p>
+    <% @dis = Array.new %>
+    <% patient.disease.each { |d| @dis << d.name} %>
+    <p>Disease: <%= @dis.to_sentence %></p>
 <%end%>
