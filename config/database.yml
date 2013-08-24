@@ -27,6 +27,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
+  reconnect: false
   database: medicine-box-production
   pool: 5
   username: postgres
