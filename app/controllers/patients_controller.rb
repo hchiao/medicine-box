@@ -1,6 +1,7 @@
 class PatientsController < ApplicationController
     def show
-        @my_patients = Patient.find(:all)
+        @my_patients = Patient.all
+        FormParser.new.say_hi("Jack")
     end
 
     def new
