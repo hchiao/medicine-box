@@ -4,7 +4,8 @@ require 'json'
 class PatientsController < ApplicationController
     def show
         @my_patients = Patient.all
-        @find_patient = Patient.find(params[:id])
+        #@find_patient = Patient.find(params[:id])
+        @my_json = @my_patients.to_json
 
         FormParser.new.say_hi("Jack")
     end
@@ -13,8 +14,8 @@ class PatientsController < ApplicationController
         @patient = Patient.new
         #json_object = JSON.parse(open("http://localhost:3000/patients/224.json").read)
         #puts json_object
-        recent_posts = HTTParty.get("http://localhost:3000/patients/224.json")
-        puts recent_posts
+        #recent_posts = HTTParty.get("http://localhost:3000/patients/224.json")
+        #puts recent_posts
     end
 
     def create
