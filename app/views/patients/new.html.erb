@@ -1,11 +1,10 @@
 <h1>Add new patient</h1>
 
-<!--
-<%#= form_for(:patient, url: create_patient_path) do |form| %>
+<%= form_for(@patient, url: {action: "create"}, html: {class: "nifty_form"}) do |form| %>
     <p>
-    <%#= form.label :name %>
-    <%#= form.text_field :name%>
-    <%#= form.submit %>
+    <%= form.text_field :name%>
+    <%= form.submit("Create patient") %>
     </p>
-<%#end%>
--->
+<%end%>
+
+<h3> <%= @param %> </h3>
