@@ -7,7 +7,7 @@ class PatientsController < ApplicationController
         #@find_patient = Patient.find(params[:id])
         @my_json = @my_patients.to_json
 
-        FormParser.new.say_hi("Jack")
+        #FormParser.new.say_hi("Jack")
     end
 
     def new
