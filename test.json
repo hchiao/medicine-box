@@ -1,0 +1,7 @@
+{
+    "rule1": [
+        {"condition": "itch", "action": "use cold compress"},
+        {"condition": "general soap","action": "use dermeeze"},
+        {"condition": "warm environment","action": "make surrounding cooler"}
+    ]
+}
