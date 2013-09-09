@@ -18,6 +18,8 @@
   <%= f.fields_for :rules do |each_rule| %>
     <p>
       Rules: <%= each_rule.text_field :condition %>
+      True:  <%= each_rule.text_field :true %>
+      False: <%= each_rule.text_field :false %>
     </p>
   <% end %>
 
