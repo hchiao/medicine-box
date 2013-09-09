@@ -13,15 +13,17 @@
 
   <p>
     Name: <%= f.text_field :name %>
-    </p>
+  </p>
 
-  <%= f.fields_for :rules do |each_rule| %>
-    <p>
-      Rules: <%= each_rule.text_field :condition %>
-      True:  <%= each_rule.text_field :true %>
-      False: <%= each_rule.text_field :false %>
-    </p>
-  <% end %>
+  <div id="rules">
+      <%= render 'rule', :collection => :rules, :f => f %>
+  </div>
+
+  <%#= link_to_function('Add a rule', "alert('Hi all!')") %>
+
+  <%= link_to_function('Add a rule', nil) do |page|
+      page.insert_html(:bottom, :rules, :partial => 'rule', :object => Rule.new)
+  end %>
 
   <p><%= f.submit %></p>
 <% end %>

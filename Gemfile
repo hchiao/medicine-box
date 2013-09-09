@@ -33,6 +33,9 @@ gem 'pg'
 # Adding a JSON lib
 gem 'httparty'
 
+# Adding right link_to_function
+#gem 'prototype-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
