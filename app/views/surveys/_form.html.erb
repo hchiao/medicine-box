@@ -19,11 +19,11 @@
       <%= render 'rule', :collection => :rules, :f => f %>
   </div>
 
-  <%#= link_to_function('Add a rule', "alert('Hi all!')") %>
+  <%#= f.fields_for :rules do |rule_form| %>
+      <%#= render 'rule', :f => rule_form %>
+  <% #end %>
 
-  <%= link_to_function('Add a rule', nil) do |page|
-      page.insert_html(:bottom, :rules, :partial => 'rule', :object => Rule.new)
-  end %>
+  <%= link_to_add_fields("Add a rule", f, :rules) %>
 
   <p><%= f.submit %></p>
 <% end %>
