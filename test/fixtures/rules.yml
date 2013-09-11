@@ -1,9 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+<<<<<<< HEAD
   condition: MyText
   action: MyText
 
 two:
   condition: MyText
   action: MyText
+=======
+  survey_id: 1
+  condition: MyText
+  'true': MyText
+  'false': MyText
+
+two:
+  survey_id: 1
+  condition: MyText
+  'true': MyText
+  'false': MyText
+>>>>>>> survay-obj

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20130830045456) do
+=======
+ActiveRecord::Schema.define(version: 20130909113709) do
+>>>>>>> survay-obj
 
   create_table "charts", force: true do |t|
     t.integer  "patient_id"
@@ -57,8 +61,15 @@ ActiveRecord::Schema.define(version: 20130830045456) do
   end
 
   create_table "rules", force: true do |t|
+<<<<<<< HEAD
     t.text     "condition"
     t.text     "action"
+=======
+    t.integer  "survey_id"
+    t.text     "condition"
+    t.text     "true"
+    t.text     "false"
+>>>>>>> survay-obj
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +78,12 @@ ActiveRecord::Schema.define(version: 20130830045456) do
     t.integer  "patient_id"
     t.text     "description"
     t.datetime "time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "surveys", force: true do |t|
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
