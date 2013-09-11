@@ -1,29 +1,12 @@
-<%= form_for(@survey) do |f| %>
-  <% if @survey.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
-
-      <ul>
-      <% @survey.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for @survey do |f| %>
+  <%#= f.error_messages %>
   <p>
-    Name: <%= f.text_field :name %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </p>
-
-  <div id="rules">
-      <%= render 'rule', :collection => :rules, :f => f %>
-  </div>
-
-  <%#= f.fields_for :rules do |rule_form| %>
-      <%#= render 'rule', :f => rule_form %>
-  <% #end %>
-
-  <%= link_to_add_fields("Add a rule", f, :rules) %>
-
-  <p><%= f.submit %></p>
+  <%= f.fields_for :rules do |builder| %>
+    <%= render "rule_fields", :f => builder %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Rule", f, :rules %></p>
+  <p><%= f.submit "Submit" %></p>
 <% end %>
