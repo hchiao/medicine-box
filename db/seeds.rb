@@ -50,8 +50,6 @@ Schedule.create([{patient_id: george.id, description: "Do something cool",time: 
                  {patient_id: kate.id, description: "Do something stupid", time: "30.12.2013"},
                  {patient_id: jenny.id, description: "Don't do anything", time: "10.05.2013"}])
 
-<<<<<<< HEAD
-=======
+
 Survey.delete_all
->>>>>>> survay-obj
 Rule.delete_all

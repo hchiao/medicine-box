@@ -11,11 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20130830045456) do
-=======
+
 ActiveRecord::Schema.define(version: 20130909113709) do
->>>>>>> survay-obj
 
   create_table "charts", force: true do |t|
     t.integer  "patient_id"

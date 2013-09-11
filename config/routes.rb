@@ -1,12 +1,6 @@
 MedicineBox::Application.routes.draw do
-<<<<<<< HEAD
-  get "condition/output"
-  get "condition/dynamic_form"
-  get "condition/create_ans"
-=======
   resources :surveys
 
->>>>>>> survay-obj
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
