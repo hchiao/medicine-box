@@ -8,10 +8,8 @@
 <ul>
     <% @survey.rules.each do |rule| %>
         <li> Rule <%= rule.id %>: condition- <%= rule.condition %>, true- <%= rule.true %>,false- <%= rule.false %></li>
-
     <%end%>
 </ul>
-
 
 <%= link_to 'Edit', edit_survey_path(@survey) %> |
 <%= link_to 'Back', surveys_path %>
