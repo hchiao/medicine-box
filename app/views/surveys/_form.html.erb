@@ -4,9 +4,11 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
+
   <%= f.fields_for :rules do |builder| %>
     <%= render "rule_fields", :f => builder %>
   <% end %>
+
   <p><%= link_to_add_fields "Add Rule", f, :rules %></p>
   <p><%= f.submit "Submit" %></p>
 <% end %>
