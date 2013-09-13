@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  client_survey_id: 1
+  rule_id: 1
+  pick: false
+
+two:
+  client_survey_id: 1
+  rule_id: 1
+  pick: false

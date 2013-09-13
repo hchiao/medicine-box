@@ -53,3 +53,5 @@ Schedule.create([{patient_id: george.id, description: "Do something cool",time: 
 
 Survey.delete_all
 Rule.delete_all
+ClientSurvey.delete_all
+Answers.delete_all
