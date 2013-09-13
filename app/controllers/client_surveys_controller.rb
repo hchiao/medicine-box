@@ -15,13 +15,10 @@ class ClientSurveysController < ApplicationController
   # GET /client_surveys/new
   def new
     @client_survey = ClientSurvey.new
-    survey_number = params[:survey_no]
-    survey = Survey.find(survey_number)
-
-    survey.rules.each do |rule|
+    target_survey = Survey.find(params[:survey_no])
+    target_survey.rules.each do |rule|
         @client_survey.answers.build(:rule_id => rule.id)
     end
-    #survey.rules.length.times { @client_survey.answers.build }
   end
 
   # GET /client_surveys/1/edit
@@ -31,17 +28,21 @@ class ClientSurveysController < ApplicationController
   # POST /client_surveys
   # POST /client_surveys.json
   def create
-    @client_survey = ClientSurvey.new(client_survey_params)
+    client_recommendation = recommendation.make(client_survey_params)
+    @client_survey = ClientSurvey.new(client_recommendation)
 
     respond_to do |format|
       if @client_survey.save
-        format.html { redirect_to @client_survey, notice: 'Client survey was successfully created.' }
+        format.html { redirect_to recommendation_client_surveys_path, notice: 'Client survey was successfully created.' }
         format.json { render action: 'show', status: :created, location: @client_survey }
       else
         format.html { render action: 'new' }
         format.json { render json: @client_survey.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def recommendation
   end
 
   # PATCH/PUT /client_surveys/1
@@ -76,6 +77,6 @@ class ClientSurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_survey_params
-      params[:client_survey]
+      params.require(:client_survey).permit(:id, :answers_attributes[])
     end
 end
