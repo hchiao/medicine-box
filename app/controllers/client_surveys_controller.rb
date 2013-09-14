@@ -28,7 +28,7 @@ class ClientSurveysController < ApplicationController
   # POST /client_surveys
   # POST /client_surveys.json
   def create
-    client_recommendation = recommendation.make(client_survey_params)
+    client_recommendation = Recommendation.new.make(client_survey_params)
     @client_survey = ClientSurvey.new(client_recommendation)
 
     respond_to do |format|
@@ -77,6 +77,7 @@ class ClientSurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_survey_params
-      params.require(:client_survey).permit(:id, :answers_attributes[])
+      #TODO VERY DANGEROUS
+      params.require(:client_survey).permit!
     end
 end
