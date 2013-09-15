@@ -1,5 +1,7 @@
 MedicineBox::Application.routes.draw do
 
+  resources :patients
+  resources :surveys
   resources :client_surveys
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,8 +10,6 @@ MedicineBox::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'patients#show'
-  resources :patients
-  resources :surveys
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

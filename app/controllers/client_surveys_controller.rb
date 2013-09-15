@@ -15,13 +15,10 @@ class ClientSurveysController < ApplicationController
   # GET /client_surveys/new
   def new
     @client_survey = ClientSurvey.new
-    survey_number = params[:survey_no]
-    survey = Survey.find(survey_number)
-
-    survey.rules.each do |rule|
+    @target_survey = Survey.find(params[:survey_no])
+    @target_survey.rules.each do |rule|
         @client_survey.answers.build(:rule_id => rule.id)
     end
-    #survey.rules.length.times { @client_survey.answers.build }
   end
 
   # GET /client_surveys/1/edit
@@ -31,7 +28,7 @@ class ClientSurveysController < ApplicationController
   # POST /client_surveys
   # POST /client_surveys.json
   def create
-    @client_survey = ClientSurvey.new(client_survey_params)
+    @client_survey = create_client_survey
 
     respond_to do |format|
       if @client_survey.save
@@ -76,6 +73,19 @@ class ClientSurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_survey_params
-      params[:client_survey]
+      #TODO VERY DANGEROUS
+      params.require(:client_survey).permit!
+    end
+
+    def create_client_survey
+        client_recommendations = Recommendation.new.make(client_survey_params[:answers_attributes])
+        ClientSurvey.new do |client|
+            client.survey_id = client_survey_params[:survey_id]
+            client.recommendations = client_recommendations
+            client_survey_params[:answers_attributes].each do |k,v|
+            client.answers.new(rule_id: v[:rule_id], pick: v[:pick])
+        end
+    end
+
     end
 end

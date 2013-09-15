@@ -11,11 +11,12 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :survey_id, :value => @target_survey.id %>
   <%= f.fields_for :answers do |builder| %>
     <%= render "answer_fields", :f => builder %>
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Check it" %>
   </div>
 <% end %>
