@@ -9,7 +9,8 @@ MedicineBox::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'patients#show'
+  root 'surveys#index'
+  #root 'patients#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
