@@ -15,7 +15,7 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
-    @survey.rules.build
+    3.times{@survey.rules.build}
   end
 
   # GET /surveys/1/edit
