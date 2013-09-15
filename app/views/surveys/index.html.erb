@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+        <th>Id</th>
       <th>Name</th>
       <th></th>
       <th></th>
@@ -13,6 +14,7 @@
   <tbody>
     <% @surveys.each do |survey| %>
       <tr>
+        <td><%= survey.id %></td>
         <td><%= survey.name %></td>
         <td><%= link_to 'Show', survey %></td>
         <td><%#= link_to 'Edit', edit_survey_path(survey) %></td>

@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_client_survey_path(@client_survey) %> |
-<%= link_to 'Back', client_surveys_path %>
+<h1>Recommendation</h1>
+
+<p><%= @client_survey.recommendations%></p>
+
+<%#= link_to 'Edit', edit_client_survey_path(@client_survey) %>
+<%= link_to 'Back', surveys_path %>

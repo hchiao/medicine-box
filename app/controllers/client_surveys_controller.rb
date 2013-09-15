@@ -15,8 +15,8 @@ class ClientSurveysController < ApplicationController
   # GET /client_surveys/new
   def new
     @client_survey = ClientSurvey.new
-    target_survey = Survey.find(params[:survey_no])
-    target_survey.rules.each do |rule|
+    @target_survey = Survey.find(params[:survey_no])
+    @target_survey.rules.each do |rule|
         @client_survey.answers.build(:rule_id => rule.id)
     end
   end
@@ -28,21 +28,17 @@ class ClientSurveysController < ApplicationController
   # POST /client_surveys
   # POST /client_surveys.json
   def create
-    client_recommendation = Recommendation.new.make(client_survey_params)
-    @client_survey = ClientSurvey.new(client_recommendation)
+    @client_survey = create_client_survey
 
     respond_to do |format|
       if @client_survey.save
-        format.html { redirect_to recommendation_client_surveys_path, notice: 'Client survey was successfully created.' }
+        format.html { redirect_to @client_survey, notice: 'Client survey was successfully created.' }
         format.json { render action: 'show', status: :created, location: @client_survey }
       else
         format.html { render action: 'new' }
         format.json { render json: @client_survey.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def recommendation
   end
 
   # PATCH/PUT /client_surveys/1
@@ -79,5 +75,17 @@ class ClientSurveysController < ApplicationController
     def client_survey_params
       #TODO VERY DANGEROUS
       params.require(:client_survey).permit!
+    end
+
+    def create_client_survey
+        client_recommendations = Recommendation.new.make(client_survey_params[:answers_attributes])
+        ClientSurvey.new do |client|
+            client.survey_id = client_survey_params[:survey_id]
+            client.recommendations = client_recommendations
+            client_survey_params[:answers_attributes].each do |k,v|
+            client.answers.new(rule_id: v[:rule_id], pick: v[:pick])
+        end
+    end
+
     end
 end

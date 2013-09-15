@@ -2,11 +2,7 @@ MedicineBox::Application.routes.draw do
 
   resources :patients
   resources :surveys
-  resources :client_surveys do
-      collection do
-          get :recommendation
-      end
-  end
+  resources :client_surveys
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
