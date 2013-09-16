@@ -1,15 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @survey.name %>
-</p>
+<h1><%= @survey.name %></h1>
 
-<ul>
+<table>
+  <thead>
+    <tr>
+      <th>Rule no.</th>
+      <th>Condition</th>
+      <th>True</th>
+      <th>False</th>
+    </tr>
+  </thead>
+
+  <tbody>
     <% @survey.rules.each do |rule| %>
-        <li> Rule <%= rule.id %>: condition- <%= rule.condition %>, true- <%= rule.true %>,false- <%= rule.false %></li>
+        <tr>
+            <td><%= rule.id %></td>
+            <td><%= rule.condition %></td>
+            <td><%= rule.true %></td>
+            <td><%= rule.false %></td>
+        </tr>
     <%end%>
-</ul>
+  </tbody>
+</table>
+
+
+
 
 <%= link_to 'Edit', edit_survey_path(@survey) %> |
 <%= link_to 'Back', surveys_path %>

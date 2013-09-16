@@ -1,9 +1,9 @@
-<h1>Listing surveys</h1>
+<h1>Managment Plans</h1>
 
 <table>
   <thead>
     <tr>
-        <th>Id</th>
+      <!--<th>Id</th>-->
       <th>Name</th>
       <th></th>
       <th></th>
@@ -14,12 +14,12 @@
   <tbody>
     <% @surveys.each do |survey| %>
       <tr>
-        <td><%= survey.id %></td>
+        <!--<td><%#= survey.id %></td>-->
         <td><%= survey.name %></td>
-        <td><%= link_to 'Show', survey %></td>
+        <td><%= link_to 'View Rules', survey %></td>
         <td><%#= link_to 'Edit', edit_survey_path(survey) %></td>
-        <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Client-Survey', client_surveys_path(:target_survey => survey) %></td>
+        <td><%= link_to 'Delete', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Launch Tool', client_surveys_path(:target_survey => survey) %></td>
       </tr>
     <% end %>
   </tbody>
