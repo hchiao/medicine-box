@@ -4,7 +4,7 @@ class ClientSurveysController < ApplicationController
   # GET /client_surveys
   # GET /client_surveys.json
   def index
-      redirect_to(new_client_survey_path(:survey_no => params[:target_survey]))
+      #redirect_to(new_client_survey_path(:survey_no => params[:target_survey]))
   end
 
   # GET /client_surveys/1
@@ -15,7 +15,7 @@ class ClientSurveysController < ApplicationController
   # GET /client_surveys/new
   def new
     @client_survey = ClientSurvey.new
-    @target_survey = Survey.find(params[:survey_no])
+    @target_survey = Survey.find(params[:target_survey])
     @target_survey.rules.each do |rule|
         @client_survey.answers.build(:rule_id => rule.id)
     end

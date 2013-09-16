@@ -1,5 +1,7 @@
+$(document).ready(function(){});
+
 function remove_fields(link) {
-  alert($(link).up(".fields"));
+  //alert($(link).up(".fields"));
   $(link).previous("input[type=hidden]").value = "1";
   $(link).up(".fields").hide();
 }

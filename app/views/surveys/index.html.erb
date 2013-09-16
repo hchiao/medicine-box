@@ -16,10 +16,13 @@
       <tr>
         <!--<td><%#= survey.id %></td>-->
         <td><%= survey.name %></td>
-        <td><%= link_to 'View Rules', survey %></td>
+        <td><%#= button_to 'View Rules', survey, method: :get %></td>
+        <td><%= link_to 'View Rules', survey, class: "ui-button" %></td>
         <td><%#= link_to 'Edit', edit_survey_path(survey) %></td>
-        <td><%= link_to 'Delete', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Launch Tool', client_surveys_path(:target_survey => survey) %></td>
+        <td><%#= link_to 'Delete', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Delete', survey, method: :delete, class: "ui-button" %></td>
+        <td><%= link_to 'Launch Tool', new_client_survey_path(:target_survey => survey), class: "ui-button" %></td>
+        <td><%#= button_to 'Launch Tool', new_client_survey_path(target_survey: survey), action: "new", method: :get %></td>
       </tr>
     <% end %>
   </tbody>
