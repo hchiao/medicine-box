@@ -33,6 +33,8 @@ gem 'pg'
 # Adding a JSON lib
 gem 'httparty'
 
+gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
