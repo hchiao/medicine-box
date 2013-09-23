@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915044940) do
+ActiveRecord::Schema.define(version: 20130923064643) do
 
   create_table "answers", force: true do |t|
     t.integer  "client_survey_id"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20130915044940) do
     t.text     "false"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_rule_id"
   end
 
   create_table "schedules", force: true do |t|
