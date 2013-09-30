@@ -1,5 +1,13 @@
 <h1>New Plan</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
+
+<FORM id="myForm" action = "/parse_rules" method = "post" >
+    <%= token_tag %>
+    <INPUT type="button" value="Add Rule" onclick="initRule()" />
+    <INPUT type="text" value="hi"/>
+    <!--<div id="org"></div>-->
+    <input id="hihi" type="submit" value="Submit"></input>
+</FORM>
 
 <%= link_to 'Back', surveys_path %>

@@ -22,6 +22,13 @@ class SurveysController < ApplicationController
   def edit
   end
 
+  def parse_rules
+    puts "================================================================================="
+    puts params
+    redirect_to controller: 'surveys'
+    #format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
+  end
+
   # POST /surveys
   # POST /surveys.json
   def create
