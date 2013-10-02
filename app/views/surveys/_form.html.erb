@@ -3,21 +3,13 @@
   Plan: <%= f.text_field :name %>
 
   <%= f.fields_for :rules do |rule_form| %>
+      <div>
       Rule:
       Question: <%= rule_form.text_field :condition %>
       If true:  <%= rule_form.text_field :true %>
       If false: <%= rule_form.text_field :false %>
       <%= rule_form.link_to_remove "remove" %>
-
-
-      <%= rule_form.fields_for :child_rules do |child_rule_form| %>
-          Child rule:
-          Question: <%= child_rule_form.text_field :condition %>
-          If true:  <%= child_rule_form.text_field :true %>
-          If false: <%= child_rule_form.text_field :false %>
-          <%= child_rule_form.link_to_remove "remove" %>
-      <%end%>
-      <%= rule_form.link_to_add "Add Child Rule", :child_rules %>
+      </div>
 
   <%end%>
 
