@@ -24,7 +24,10 @@ class SurveysController < ApplicationController
 
   def parse_rules
     puts "================================================================================="
-    puts params
+    objs = DynamicForm.new.parse(params)
+    objs.each { |x| puts x.lnr }
+    #puts objs.lnr
+
     redirect_to controller: 'surveys'
     #format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
   end
